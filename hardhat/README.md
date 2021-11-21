@@ -15,3 +15,5 @@ npx hardhat help
 ```
 
 https://hardhat.org/getting-started/#quick-start
+
+https://stermi.medium.com/how-to-deploy-your-first-smart-contract-on-ethereum-with-solidity-and-hardhat-22f21d31096e
