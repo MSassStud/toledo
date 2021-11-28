@@ -8,7 +8,7 @@ const { expect } = require("chai");
 // `describe` receives the name of a section of your test suite, and a callback.
 // The callback must define the tests of that section. This callback can't be
 // an async function.
-describe("Token contract", function () {
+describe("ToLeDoToken contract", function () {
   // Mocha has four functions that let you hook into the the test runner's
   // lifecyle. These are: `before`, `beforeEach`, `after`, `afterEach`.
 
@@ -29,7 +29,7 @@ describe("Token contract", function () {
   // time. It receives a callback, which can be async.
   beforeEach(async function () {
     // Get the ContractFactory and Signers here.
-    Token = await ethers.getContractFactory("Token");
+    Token = await ethers.getContractFactory("ToLeDoToken");
     [owner, addr1, addr2, ...addrs] = await ethers.getSigners();
 
     // To deploy our contract, we just have to call Token.deploy() and await

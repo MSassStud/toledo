@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <span class="example-spacer"></span>
+  <button *ngIf="!isConnected" mat-button (click)="openMetamaskDialog()">connect to wallet <mat-icon>account_balance_wallet</mat-icon></button>
+  <mat-chip-list *ngIf="isConnected">
+    <mat-chip (click)="reward()">{{ tokens | number }} TLDT</mat-chip>
+    <mat-chip >0x6545...4648 <mat-icon>account_balance_wallet</mat-icon></mat-chip>
+  </mat-chip-list>
+</mat-toolbar>
+
+<div style="display: flex; justify-content: center;">
+  <img src="assets/logo.svg" style="width: 50%;"/> 
+</div>

@@ -26,9 +26,9 @@ async function main() {
   const token = await Token.deploy();
 
   deployedToken = await token.deployed();
-  // await deployedToken.transfer("0x3B0eA7D7F0279423d3794F303cbbAFE0BeAD1370", 50);
+  await deployedToken.transfer("0x95A0352726A68230518A8023f28c13780172BA61", 50);
 
-  console.log("Token deployed to:", token.address);
+  console.log("ToLeDoToken deployed to:", token.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

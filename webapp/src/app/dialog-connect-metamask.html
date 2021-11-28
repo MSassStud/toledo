@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Connect your Wallet</h2>
+<mat-dialog-content class="mat-typography">
+  <p>By connecting a wallet, you agree to Uniswap Labs’ Terms of Service and acknowledge that you have read and understand the Uniswap Protocol Disclaimer.</p>
+  <p style="display: flex;  align-items: center;">
+    <img src="assets/metamask-fox-wordmark-horizontal.svg" style="height: 100px;"/> 
+    <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>Connect</button>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+</mat-dialog-actions>

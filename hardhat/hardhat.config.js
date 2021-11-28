@@ -1,5 +1,9 @@
 require("@nomiclabs/hardhat-waffle");
 
+const ALCHEMY_API_KEY = "h6bAt3bf04mlJXHX9WbafqyG3ZUoXpo5";
+
+const ROPSTEN_PRIVATE_KEY = "f8b304a7ecb5b77770a323f14d7718fbb58195b8de6b7f4f6e0bbea533baed90";
+
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
