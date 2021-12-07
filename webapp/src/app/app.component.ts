@@ -118,13 +118,14 @@ export class AppComponent implements OnInit {
     });
   }
 
-  bet(bet:number) {
-    if(bet > this.tokens) {
+  bet(bet:string) {
+    let betAsNumber: number = +bet;
+    if(betAsNumber > this.tokens) {
       this.notEnoughTokens();
       return;
     }
 
-    bet > this.actualBet ? this.acceptBet(bet): this.declineBet(bet);
+    betAsNumber > this.actualBet ? this.acceptBet(betAsNumber): this.declineBet(betAsNumber);
   }
 
   acceptBet(bet:number) {
@@ -144,6 +145,7 @@ export class AppComponent implements OnInit {
 
   someBetMore() {
     this.highestBidder = false;
+    this.tokens =  this.tokens + this.actualBet;
     this.actualBet++;
     
     this._snackBar.open('Oh shit! Someone bet more than you :(', '', {
@@ -154,7 +156,7 @@ export class AppComponent implements OnInit {
   }
 
   notEnoughTokens() {
-    this._snackBar.open('Sorry but you need more ToLeDo-Tokens for that bet!', '', {
+    this._snackBar.open('Sorry but you need more ToLeDo-Token for that bet!', '', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000
