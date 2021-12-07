@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Your Profile</h2>
+<mat-dialog-content class="mat-typography">
+  <p>To get more ToLeDo Token add your Domain here</p>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Your Top Level Domain</mat-label>
+      <input #email matInput placeholder="toledo.com">
+    </mat-form-field>
+    <button type="button" mat-button color="accent" (click)="saveDomain(email.value)">SAVE</button>
+  </form>
+  <br>
+
+  <p>Your connected Domain: <span style="color: #c2185b">{{data.domain}}</span></p> 
+  <div style="display: flex;  align-items: center;">
+    <mat-icon color="accent" *ngIf="data.validated">check_circle</mat-icon>
+    <mat-icon *ngIf="!data.validated">cancel</mat-icon> 
+    <button mat-button (click)="validate()">VALIDATE</button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="data">CLOSE</button>
+</mat-dialog-actions>

@@ -1,16 +1,84 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" role="heading" style="position: fixed; top: 0; left: 0; right: 0; z-index: 2;">
   <h3>ToLeDo</h3>
   <span class="example-spacer"></span>
   <button *ngIf="!isConnected" mat-button (click)="openMetamaskDialog()">connect to wallet <mat-icon>account_balance_wallet</mat-icon></button>
   <mat-chip-list *ngIf="isConnected">
-    <mat-chip (click)="reward()">{{ tokens | number }} TLDT</mat-chip>
+    <mat-chip (click)="reward(1)">{{ tokens | number }} TLDT</mat-chip>
     <mat-chip >0x6545...4648 <mat-icon>account_balance_wallet</mat-icon></mat-chip>
   </mat-chip-list>
+  <button (click)="openProfileDialog()" *ngIf="isConnected" mat-icon-button><mat-icon>account_circle</mat-icon></button>
 </mat-toolbar>
 
-<div style="display: flex; justify-content: center;">
+<div style="display: flex; justify-content: center; margin-top: 64px;">
   <img src="assets/logo.svg" style="width: 50%;"/> 
 </div>
-<div style="display: flex; justify-content: center;">
-  <h1 style="color: #ffffff">Reclaim your Domain.</h1>
+<div style="display: flex; justify-content: center;  margin-bottom: 10em;">
+  <h2 style="color: #ffffff">Reclaim your Domain.</h2>
 </div>
+<div style="display: flex; justify-content: center;">
+  <h1 style="color: #ffffff">Do you have an unused domain?</h1>
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <h1 style="color: #ffffff">- Yes? Why not use it for crypto currency?</h1>
+</div>
+
+<div style="display: flex; justify-content: center; margin-bottom: 5em;">
+  <img src="assets/description.png"/>
+</div>
+
+<div style="background-color: #ffffff; padding: 2em 0 2em 0; margin-bottom: 5em;">
+  <div style="display: flex; justify-content: space-around;">
+    <h1 class="mat-display-2" style="color: #303030">But ... Why?</h1>
+  </div>
+  <div style="display: flex; justify-content: space-around; color: #303030">
+    <div style="width: 30%; text-align: center; max-width: 340px;">
+      <mat-icon style="font-size: 6em; width: 1em;">sentiment_very_satisfied</mat-icon>
+      <h1>For Fun</h1>
+      <p>Post content over all websites in the hole ToLeDo Network at once!</p>
+    </div>
+    <div style="width: 30%; text-align: center; max-width: 340px;">
+      <mat-icon style="font-size: 6em; width: 1em;">account_balance_wallet</mat-icon>
+      <h1>For Crypto</h1>
+      <p>Do nothing an get ToLeDo-Token. Send them into your wallet and use them like every other crypto currence.</p>
+    </div>
+  </div>
+</div>
+
+<div style="display: flex; align-items: center; flex-direction: column; margin-bottom: 2em;">
+  <h1 class="mat-display-2" style="color: #ffffff;">ACTUAL SHARED CONTENT</h1>
+  <img src="assets/shared-content.jpg" style="width: 30%;"/> 
+</div>
+
+<div *ngIf="!isConnected" style="display: flex; justify-content: center; color: #ffffff;">
+  <p>Post your content to the network. Connect your wallet and you can start: </p>
+  <button color="accent" mat-button (click)="openMetamaskDialog()">connect to wallet <mat-icon>account_balance_wallet</mat-icon></button>
+</div>
+
+<div *ngIf="isConnected" style="display: flex; justify-content: center; align-items: center; flex-direction: column; color:#ffffff">
+  <div>
+    <i>Next auction ends in:</i>
+    <p id="countdown"></p>
+    <mat-chip>{{ actualBet | number }} TLDT</mat-chip> is the highest bet right now! 
+    <p *ngIf="highestBidder">YOU ARE THE HIGHEST BIDDER!!!</p>
+  </div>
+  <div style="display: flex;flex-direction: row; justify-content: around; align-items: center;">
+    <div style="margin-right: 1em">
+      <form class="dropzone" id="upload" action="/"></form>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" style="margin-right: 1em;">
+        <mat-label>Your Bet</mat-label>
+        <input #betToken matInput placeholder="Tokens">
+        <span matSuffix>TLDT</span>
+        <mat-hint>Bet an amount of your tokens to be the next who can share content!</mat-hint>
+      </mat-form-field>
+      <button color="primary" mat-raised-button mat-button (click)="bet(betToken.value)" [disabled]="highestBidder">Bet Token</button>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
