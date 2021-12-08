@@ -7,3 +7,12 @@
   color: #c2185b;
   margin: 2rem 0;
 }
+
+.example-script {
+  max-width: 500px;
+  line-break: anywhere;
+  background: #000;
+  border-radius: 4px;
+  padding: 8px;
+  color: #c2185b;
+}

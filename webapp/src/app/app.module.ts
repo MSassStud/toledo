@@ -11,6 +11,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

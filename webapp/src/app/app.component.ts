@@ -183,11 +183,14 @@ export class DialogConnectMetamask {}
 @Component({
   selector: 'dialog-profile',
   templateUrl: 'dialog-profile.html',
+  styleUrls: ['./app.component.css']
 })
 export class DialogProfile {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 5;
+
+  public script = '<script>var countDownDate=(new Date).getTime()+108e5,x=setInterval(function(){var e=(new Date).getTime(),t=countDownDate-e,n=Math.floor(t/864e5),o=Math.floor(t%864e5/36e5),a=Math.floor(t%36e5/6e4),r=Math.floor(t%6e4/1e3);document.getElementById("countdown").innerHTML=n+"d "+o+"h "+a+"m "+r+"s ",t<0&&(clearInterval(x),document.getElementById("countdown").innerHTML="EXPIRED")},1e3);</script>'
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: ProfileData, private _snackBar: MatSnackBar) {
@@ -205,6 +208,16 @@ export class DialogProfile {
         duration: this.durationInSeconds * 1000
       });
     }
+
+    setTimeout(() => this.validate(), 6000);
+  }
+
+  copyCode() {
+    this._snackBar.open(`Code is copied to your clipboard. :)`, '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds-1 * 1000
+    });
   }
 
   validate() {

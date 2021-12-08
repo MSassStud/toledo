@@ -10,12 +10,27 @@
     <button type="button" mat-button color="accent" (click)="saveDomain(email.value)">SAVE</button>
   </form>
   <br>
+  <div style="display: flex; flex-direction: column;" *ngIf="data.domain">
+    <p>Your connected Domain: <span style="color: #c2185b">{{data.domain}}</span></p> 
+    <div style="display: flex; flex-direction: column;">
+      
+      <p>Paste this code to your website on the index.html to be part of the ToLeDo-Network like </p>
+      <a mat-button href="http://localhost:4201" target="_blank">this page <mat-icon>link</mat-icon></a>
 
-  <p>Your connected Domain: <span style="color: #c2185b">{{data.domain}}</span></p> 
-  <div style="display: flex;  align-items: center;">
-    <mat-icon color="accent" *ngIf="data.validated">check_circle</mat-icon>
-    <mat-icon *ngIf="!data.validated">cancel</mat-icon> 
-    <button mat-button (click)="validate()">VALIDATE</button>
+      <div class="example-script">
+        <code>{{script}}</code>
+        <button mat-button color="accent" (click)="copyCode()">Copy Code</button>
+      </div>
+
+      <div *ngIf="!data.validated" style="display: flex; flex-direction: row; height: 30px;">
+        <mat-progress-spinner diameter="18" mode="indeterminate"></mat-progress-spinner>
+        <i>wait for validation</i>
+      </div>
+      <div *ngIf="data.validated" style="display: flex; flex-direction: row;">
+        <mat-icon color="accent">check_circle</mat-icon> 
+        <i>Validated!</i>
+      </div>
+    </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
