@@ -19,16 +19,17 @@ export class AppComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 5;
-
+  
   public isConnected: boolean;
   public connectedDomain: string;
   public profile: ProfileData;
   public tokens:  number;
   public actualBet: number;
   public highestBidder: boolean;
-
+  
   public dropzone;
-
+  public step = 0;
+  
   ngOnInit() {
     this.tokens = 0;
     this.actualBet = 364;
@@ -171,6 +172,18 @@ export class AppComponent implements OnInit {
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000
     });
+  }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 }
 

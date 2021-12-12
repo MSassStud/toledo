@@ -79,6 +79,54 @@
   </div>
 </div>
 
+<div style="padding: 2em 0 2em 0; margin-bottom: 5em; margin-top: 5em;">
+  <div style="display: flex; justify-content: space-around; background-color: #c2185b;">
+    <h1 style="color:#ffffff; margin: 64px 0 64px;" class="mat-display-2">FAQ?</h1>
+  </div>
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How can I get Token?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ol>
+        <li>For your first connection with your wallet you will receive some tokens for free!</li>
+        <li>After an auction we will split the offered token to all validated websites in our network. If you have entered a validated website at this moment, then you will receive a piece from the cake. :)</li>
+      </ol>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Is there a control for the content?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        YES there is! Before a new content is shared we check it and prove that there is no illegal or offensive content. If there is content that we wont support than a random MEME will be posted. ;P
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Are there any costs?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        The only costs you will have is the gas fee if you want to transfer your TLDT to your Wallet. You need no money to collect Token.
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+</div>
 
 <br>
 <br>
